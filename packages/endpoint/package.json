@@ -1,29 +1,12 @@
 {
   "name": "@merriam-webster/endpoint",
   "version": "0.1.0",
-  "description": "API endpoint for Merriam-Webster Dictionary",
+  "private": true,
+  "description": "Rate-limited Cloudflare Worker proxy for Merriam-Webster API",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc --noEmit"
@@ -39,11 +22,10 @@
     "@merriam-webster/lib": "workspace:*"
   },
   "devDependencies": {
-    "tsup": "^8.0.0",
+    "@cloudflare/vitest-pool-workers": "^0.5.0",
+    "@cloudflare/workers-types": "^4.20241127.0",
     "typescript": "^5.0.0",
-    "vitest": "^2.0.0"
-  },
-  "engines": {
-    "node": ">=18"
+    "vitest": "^2.0.0",
+    "wrangler": "^3.91.0"
   }
 }

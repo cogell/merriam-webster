@@ -1,0 +1,32 @@
+name = "merriam-webster-api"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# KV namespace for caching MW API responses
+# Create with: wrangler kv:namespace create CACHE
+# Then update the id below with the returned value
+[[kv_namespaces]]
+binding = "CACHE"
+id = "PLACEHOLDER_CACHE_ID"
+# preview_id = "PLACEHOLDER_PREVIEW_ID"  # For wrangler dev
+
+# Durable Objects for rate limiting
+[durable_objects]
+bindings = [{ name = "RATE_LIMITER", class_name = "RateLimiter" }]
+
+# DO migrations (required for first deployment)
+[[migrations]]
+tag = "v1"
+new_classes = ["RateLimiter"]
+
+# Environment variables (non-secrets)
+[vars]
+DAILY_REQUEST_LIMIT = "1000"
+ALLOWED_ORIGINS = "*"
+
+# Secrets (set via CLI, not in this file):
+# wrangler secret put MW_DICTIONARY_KEY
+# wrangler secret put MW_THESAURUS_KEY
+# wrangler secret put WORKER_API_KEY
+# wrangler secret put ADMIN_API_KEY
