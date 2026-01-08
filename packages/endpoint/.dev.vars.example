@@ -1,0 +1,11 @@
+# Local development secrets for wrangler dev
+# Copy this file to .dev.vars and fill in your values
+# .dev.vars is gitignored and should never be committed
+
+# Merriam-Webster API keys (get from https://dictionaryapi.com/register/index)
+MW_DICTIONARY_KEY=your-collegiate-dictionary-key
+MW_THESAURUS_KEY=your-collegiate-thesaurus-key
+
+# Worker API keys (generate with: openssl rand -base64 32)
+WORKER_API_KEY=your-api-key-for-consumers
+ADMIN_API_KEY=your-admin-key-for-cache-ops
