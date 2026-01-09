@@ -8,3 +8,6 @@ dist
 !.dev.vars.example
 .DS_Store
 .wrangler
+
+# bv (beads viewer) local config and caches
+.bv/

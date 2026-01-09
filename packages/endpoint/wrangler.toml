@@ -8,7 +8,7 @@ compatibility_flags = ["nodejs_compat"]
 # Then update the id below with the returned value
 [[kv_namespaces]]
 binding = "CACHE"
-id = "PLACEHOLDER_CACHE_ID"
+id = "d075dc2295684e5190c4053ca757cd47"
 # preview_id = "PLACEHOLDER_PREVIEW_ID"  # For wrangler dev
 
 # Durable Objects for rate limiting
