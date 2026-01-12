@@ -1,0 +1,11 @@
+# Secrets and credentials
+.env
+.env.local
+.env.*.local
+credentials/
+
+# Build output
+dist/
+
+# Dependencies
+node_modules/
